@@ -39,58 +39,56 @@ class _GameScreenState extends State<GameScreen> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Expanded(
-            child: Stack(
-              children: [
-                Positioned(
-                  top: 50,
-                  left: 20,
-                  child: Container(
-                    padding: const EdgeInsets.all(10.0),
-                    decoration: BoxDecoration(
-                      color: Colors.pinkAccent,
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    child: ValueListenableBuilder(
-                      valueListenable:
-                          counter, // Pastikan variabel 'counter' sudah ada di class ini
-                      builder: (context, score, child) {
-                        return Text(
-                          'Score: $score', // Mengambil nilai 'score' terbaru
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        );
+          Stack(
+            children: [
+              Positioned(
+                top: 50,
+                left: 20,
+                child: Container(
+                  padding: const EdgeInsets.all(10.0),
+                  decoration: BoxDecoration(
+                    color: Colors.pinkAccent,
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  child: ValueListenableBuilder(
+                    valueListenable:
+                        counter, // Pastikan variabel 'counter' sudah ada di class ini
+                    builder: (context, score, child) {
+                      return Text(
+                        'Score: $score', // Mengambil nilai 'score' terbaru
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ),
+          
+              //Icon music & sound
+              Positioned(
+                top: 50,
+                right: 20,
+                child: Row(
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.music_note, color: Colors.black),
+                      onPressed: () {
+                        // Pause game logic here
                       },
                     ),
-                  ),
+                    IconButton(
+                      icon: const Icon(Icons.volume_up, color: Colors.black),
+                      onPressed: () {
+                        // Pause game logic here
+                      },
+                    ),
+                  ],
                 ),
-
-                //Icon music & sound
-                Positioned(
-                  top: 50,
-                  right: 20,
-                  child: Row(
-                    children: [
-                      IconButton(
-                        icon: const Icon(Icons.music_note, color: Colors.black),
-                        onPressed: () {
-                          // Pause game logic here
-                        },
-                      ),
-                      IconButton(
-                        icon: const Icon(Icons.volume_up, color: Colors.black),
-                        onPressed: () {
-                          // Pause game logic here
-                        },
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
           Padding(
           padding: const EdgeInsets.all(20.0),

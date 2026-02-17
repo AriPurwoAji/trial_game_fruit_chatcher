@@ -1,6 +1,6 @@
-import 'dart:ffi';
 
 import 'package:coba_game/game/fruit_catcher_game.dart';
+import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -41,6 +41,7 @@ class _GameScreenState extends State<GameScreen> {
     return Scaffold(
       body: Stack(
         children: [
+          GameWidget(game: game),
           Positioned(
             top: 50,
             left: 20,

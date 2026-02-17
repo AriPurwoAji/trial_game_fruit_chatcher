@@ -1,9 +1,12 @@
 
 import 'package:coba_game/game/fruit_catcher_game.dart';
+import 'package:coba_game/services/audio_manager.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await AudioManager().initialize();
   runApp(MyApp());
 }
 
@@ -75,13 +78,13 @@ class _GameScreenState extends State<GameScreen> {
                 IconButton(
                   icon: const Icon(Icons.music_note, color: Colors.black),
                   onPressed: () {
-                    // Pause game logic here
+                    AudioManager().toggleMusic();
                   },
                 ),
                 IconButton(
                   icon: const Icon(Icons.volume_up, color: Colors.black),
                   onPressed: () {
-                    // Pause game logic here
+                    AudioManager().toggleSfx();
                   },
                 ),
               ],

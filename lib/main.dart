@@ -95,18 +95,6 @@ class _GameScreenState extends State<GameScreen> {
               ],
             ),
           ),
-
-          // Tombol tambah skor untuk demo
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: ElevatedButton(
-              onPressed: () {
-                // Menambah nilai skor secara dinamis
-                counter.value++;
-              },
-              child: const Text('Tambah Skor'),
-            ),
-          ),
         ],
       ),
     );

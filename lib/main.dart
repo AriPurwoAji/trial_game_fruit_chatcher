@@ -1,10 +1,9 @@
-
 import 'package:coba_game/game/fruit_catcher_game.dart';
 import 'package:coba_game/services/audio_manager.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await AudioManager().initialize();
   runApp(MyApp());
@@ -37,6 +36,12 @@ class _GameScreenState extends State<GameScreen> {
   void initState() {
     super.initState();
     game = FruitCatcherGame();
+  }
+
+  @override
+  void dispose() {
+    game.onRemove();
+    super.dispose();
   }
 
   @override

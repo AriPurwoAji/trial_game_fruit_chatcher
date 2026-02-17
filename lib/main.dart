@@ -36,72 +36,67 @@ class _GameScreenState extends State<GameScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      body: Stack(
         children: [
-          Stack(
-            children: [
-              Positioned(
-                top: 50,
-                left: 20,
-                child: Container(
-                  padding: const EdgeInsets.all(10.0),
-                  decoration: BoxDecoration(
-                    color: Colors.pinkAccent,
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  child: ValueListenableBuilder(
-                    valueListenable:
-                        counter, // Pastikan variabel 'counter' sudah ada di class ini
-                    builder: (context, score, child) {
-                      return Text(
-                        'Score: $score', // Mengambil nilai 'score' terbaru
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      );
-                    },
-                  ),
-                ),
+          Positioned(
+            top: 50,
+            left: 20,
+            child: Container(
+              padding: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color: Colors.pinkAccent,
+                borderRadius: BorderRadius.circular(10),
               ),
-          
-              //Icon music & sound
-              Positioned(
-                top: 50,
-                right: 20,
-                child: Row(
-                  children: [
-                    IconButton(
-                      icon: const Icon(Icons.music_note, color: Colors.black),
-                      onPressed: () {
-                        // Pause game logic here
-                      },
+              child: ValueListenableBuilder(
+                valueListenable: counter,
+                builder: (context, score, child) {
+                  return Text(
+                    "Score: $score",
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
                     ),
-                    IconButton(
-                      icon: const Icon(Icons.volume_up, color: Colors.black),
-                      onPressed: () {
-                        // Pause game logic here
-                      },
-                    ),
-                  ],
-                ),
+                  );
+                },
               ),
-            ],
+            ),
           ),
+          //Icon music & sound
+          Positioned(
+            top: 50,
+            right: 20,
+            child: Row(
+              children: [
+                IconButton(
+                  icon: const Icon(Icons.music_note, color: Colors.black),
+                  onPressed: () {
+                    // Pause game logic here
+                  },
+                ),
+                IconButton(
+                  icon: const Icon(Icons.volume_up, color: Colors.black),
+                  onPressed: () {
+                    // Pause game logic here
+                  },
+                ),
+              ],
+            ),
+          ),
+
+          // Tombol tambah skor untuk demo
           Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: ElevatedButton(
-            onPressed: () {
-              // Menambah nilai skor secara dinamis
-              counter.value++; 
-            },
-            child: const Text('Tambah Skor'),
+            padding: const EdgeInsets.all(20.0),
+            child: ElevatedButton(
+              onPressed: () {
+                // Menambah nilai skor secara dinamis
+                counter.value++;
+              },
+              child: const Text('Tambah Skor'),
+            ),
           ),
-        ),
-      ],
-    ),
-  );
-}
+        ],
+      ),
+    );
+  }
 }

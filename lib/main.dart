@@ -99,7 +99,7 @@ class _GameScreenState extends State<GameScreen> {
               // Menambah nilai skor secara dinamis
               counter.value++; 
             },
-            child: const Text('Tambah Skor (Tes)'),
+            child: const Text('Tambah Skor'),
           ),
         ),
       ],
